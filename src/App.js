@@ -4,40 +4,47 @@ import "./App.css";
 import { Line } from "react-chartjs-2";
 
 
-const rawData = [
-  { id: '1', birthday: 1, spend: 2000, region: 'United States' },
-  { id: '2', birthday: 2, spend: 3000, region: 'APAC' },
-  { id: '3', birthday: 3, spend: 2000, region: 'Asia' },
-  { id: '4', birthday: 4, spend: 3000, region: 'Latin America' },
-  { id: '5', birthday: 5, spend: 2000, region: 'United States' },
-  { id: '6', birthday: 6, spend: 3000, region: 'APAC' },
-  { id: '7', birthday: 7, spend: 2000, region: 'Asia' },
-  { id: '8', birthday: 8, spend: 3000, region: 'Latin America' },
-  { id: '9', birthday: 9, spend: 2000, region: 'United States' },
-  { id: '10', birthday: 10, spend: 3000, region: 'APAC' },
-  { id: '11', birthday: 11, spend: 2000, region: 'Asia' },
-  { id: '12', birthday: 12, spend: 3000, region: 'Latin America' },
-  { id: '13', birthday: 1, spend: 2000, region: 'United States' },
-  { id: '14', birthday: 2, spend: 3000, region: 'APAC' },
-  { id: '15', birthday: 3, spend: 2000, region: 'Asia' },
-  { id: '16', birthday: 4, spend: 3000, region: 'Latin America' },
-  { id: '17', birthday: 5, spend: 2000, region: 'United States' },
-  { id: '18', birthday: 6, spend: 3000, region: 'APAC' },
-  { id: '19', birthday: 7, spend: 2000, region: 'Asia' },
-  { id: '20', birthday: 8, spend: 3000, region: 'Latin America' },
-  { id: '21', birthday: 9, spend: 2000, region: 'United States' },
-  { id: '22', birthday: 10, spend: 3000, region: 'APAC' },
-  { id: '23', birthday: 11, spend: 2000, region: 'Asia' },
-  { id: '24', birthday: 12, spend: 3000, region: 'Latin America' },
-
-];
-
 export default function App() {
 
   const [data, setData] = useState({});
   const [minValue, setMinValue] = useState(0);
   const [region, setRegion] = useState('');
+  const [rawData, setRawData] = useState([]);
 
+
+  useEffect(() => {
+
+    //fetch('SUA API AQUI').then(response => response.json()).then(data => setRawData(data));
+
+    setRawData([
+      { id: '1', birthday: 1, spend: 2000, region: 'United States' },
+      { id: '2', birthday: 2, spend: 3000, region: 'APAC' },
+      { id: '3', birthday: 3, spend: 2000, region: 'Asia' },
+      { id: '4', birthday: 4, spend: 3000, region: 'Latin America' },
+      { id: '5', birthday: 5, spend: 2000, region: 'United States' },
+      { id: '6', birthday: 6, spend: 3000, region: 'APAC' },
+      { id: '7', birthday: 7, spend: 2000, region: 'Asia' },
+      { id: '8', birthday: 8, spend: 3000, region: 'Latin America' },
+      { id: '9', birthday: 9, spend: 2000, region: 'United States' },
+      { id: '10', birthday: 10, spend: 3000, region: 'APAC' },
+      { id: '11', birthday: 11, spend: 2000, region: 'Asia' },
+      { id: '12', birthday: 12, spend: 3000, region: 'Latin America' },
+      { id: '13', birthday: 1, spend: 2000, region: 'United States' },
+      { id: '14', birthday: 2, spend: 3000, region: 'APAC' },
+      { id: '15', birthday: 3, spend: 2000, region: 'Asia' },
+      { id: '16', birthday: 4, spend: 3000, region: 'Latin America' },
+      { id: '17', birthday: 5, spend: 2000, region: 'United States' },
+      { id: '18', birthday: 6, spend: 3000, region: 'APAC' },
+      { id: '19', birthday: 7, spend: 2000, region: 'Asia' },
+      { id: '20', birthday: 8, spend: 3000, region: 'Latin America' },
+      { id: '21', birthday: 9, spend: 2000, region: 'United States' },
+      { id: '22', birthday: 10, spend: 3000, region: 'APAC' },
+      { id: '23', birthday: 11, spend: 2000, region: 'Asia' },
+      { id: '24', birthday: 12, spend: 3000, region: 'Latin America' },
+
+    ]);
+
+  }, [])
 
   useEffect(() => {
 
@@ -85,7 +92,7 @@ export default function App() {
       ]
     });
 
-  }, [minValue, region]);
+  }, [rawData, minValue, region]);
 
 
 
